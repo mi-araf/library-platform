@@ -2,6 +2,7 @@
   "name": "library-platform",
   "version": "0.1.0",
   "private": true,
+  "description": "Online Book Borrowing Platform built with Next.js, JavaScript, JSX, Tailwind CSS, DaisyUI, Better Auth and MongoDB.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -16,6 +17,7 @@
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "babel-plugin-react-compiler": "1.0.0",
+    "daisyui": "^5.5.19",
     "eslint": "^9",
     "eslint-config-next": "16.2.4",
     "tailwindcss": "^4"
