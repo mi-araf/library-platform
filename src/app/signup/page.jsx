@@ -19,17 +19,24 @@ export default function SignUpPage() {
         const email = e.target.email.value;
         const password = e.target.password.value;
 
-        const {data, error} = await authClient.signUp.email({
+        const { data, error } = await authClient.signUp.email({
             name, email, password, image,
             callbackURL: "/",
         });
 
-        console.log({data, error});
+        console.log({ data, error });
 
         if (!error) {
             router.push("/");
         }
     };
+
+    const handleGoogleSignIn = async () => {
+        await authClient.signIn.social({
+            provider: "google",
+        });
+    };
+
 
     return (
         <div className="min-h-screen bg-[linear-gradient(135deg,#fff7e6_0%,#fffaf0_35%,#ffe8d6_70%,#f7e8ff_100%)]">
@@ -117,7 +124,7 @@ export default function SignUpPage() {
                             <div className="h-px flex-1 bg-orange-300" />
                         </div>
 
-                        <button className="w-full rounded-full border border-amber-200 bg-white px-6 py-3 text-sm font-black text-neutral/70 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-primary/30 hover:bg-info hover:text-primary-content hover:shadow-lg hover:shadow-primary/20 active:scale-95 cursor-pointer flex items-center justify-center gap-2">
+                        <button onClick={handleGoogleSignIn} className="w-full rounded-full border border-amber-200 bg-white px-6 py-3 text-sm font-black text-neutral/70 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-primary/30 hover:bg-info hover:text-primary-content hover:shadow-lg hover:shadow-primary/20 active:scale-95 cursor-pointer flex items-center justify-center gap-2">
                             Continue with Google <span> <FcGoogle /> </span>
                         </button>
 
