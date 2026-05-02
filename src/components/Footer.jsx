@@ -78,13 +78,9 @@ export default function FooterPage() {
             : "opacity-0";
 
     return (
-        <footer
-            ref={footerRef}
-            className="relative overflow-hidden bg-[linear-gradient(135deg,#fff7e6_0%,#fffaf0_35%,#ffe8d6_70%,#f7e8ff_100%)] px-4 py-8 sm:px-6 lg:px-8"
-        >
+        <footer ref={footerRef} className="relative overflow-hidden bg-[linear-gradient(135deg,#fff7e6_0%,#fffaf0_35%,#ffe8d6_70%,#f7e8ff_100%)] px-4 py-8 sm:px-6 lg:px-8" >
             {/* soft background lights */}
-            <div
-                className={`pointer-events-none absolute -left-20 top-8 h-60 w-60 rounded-full bg-primary/10 blur-3xl transition-opacity duration-300 ${isFooterVisible
+            <div className={`pointer-events-none absolute -left-20 top-8 h-60 w-60 rounded-full bg-primary/10 blur-3xl transition-opacity duration-300 ${isFooterVisible
                         ? "animate__animated animate__pulse animate__infinite animate__slower opacity-100"
                         : "opacity-0"
                     }`}

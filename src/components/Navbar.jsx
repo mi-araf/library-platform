@@ -60,9 +60,9 @@ export default function Navbar() {
                 </nav>
 
                 <div className="navbar-end gap-2 px-2 md:gap-3">
-                    <Link href="/login" className="btn btn-sm rounded-full btn-primary shadow-mango">
+                    <Link href="/signin" className="btn btn-sm rounded-full btn-primary shadow-mango">
                         <UserCheck2 className="h-4 w-4" />
-                        Login
+                        Sign In
                     </Link>
                 </div>
             </div>
