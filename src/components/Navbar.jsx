@@ -51,7 +51,7 @@ export default function Navbar() {
                         <span className="grid w-8 h-8 md:h-10 md:w-10 place-items-center  rounded-2xl bg-emerald-500 text-primary-content shadow-mango">
                             <BookOpen className="h-5 w-5" />
                         </span>
-                        <span>Araf&lsquo;s Library</span>
+                        <span><span className="bg-linear-to-r from-primary via-fuchsia-400 to-orange-500 bg-clip-text text-transparent ">Araf&lsquo;s</span> Library</span>
                     </Link>
                 </div>
 
