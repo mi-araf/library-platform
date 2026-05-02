@@ -8,11 +8,6 @@ export default function Home() {
             <Navbar />
             <Hero />
 
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-
             <FooterPage />
         </div>
     );

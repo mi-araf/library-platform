@@ -4,7 +4,7 @@
         "title": "To Kill a Mockingbird",
         "author": "Harper Lee",
         "description": "A powerful coming-of-age novel set in the American South, exploring justice, prejudice, courage, and moral growth through the eyes of young Scout Finch.",
-        "category": "Classic Fiction",
+        "category": "Fiction",
         "available_quantity": 12,
         "image_url": "https://covers.openlibrary.org/b/isbn/9780061120084-L.jpg"
     },
@@ -13,7 +13,7 @@
         "title": "1984",
         "author": "George Orwell",
         "description": "A dystopian novel about surveillance, propaganda, thought control, and one man's struggle against a totalitarian regime.",
-        "category": "Dystopian Fiction",
+        "category": "Fiction",
         "available_quantity": 9,
         "image_url": "https://covers.openlibrary.org/b/isbn/9780451524935-L.jpg"
     },
@@ -22,7 +22,7 @@
         "title": "The Great Gatsby",
         "author": "F. Scott Fitzgerald",
         "description": "A Jazz Age classic about wealth, obsession, illusion, and the fragile dream surrounding Jay Gatsby and Daisy Buchanan.",
-        "category": "Classic Fiction",
+        "category": "Fiction",
         "available_quantity": 15,
         "image_url": "https://covers.openlibrary.org/b/isbn/9780743273565-L.jpg"
     },
@@ -40,7 +40,7 @@
         "title": "The Catcher in the Rye",
         "author": "J. D. Salinger",
         "description": "A landmark coming-of-age novel following Holden Caulfield as he wanders New York City and wrestles with alienation, grief, and adulthood.",
-        "category": "Literary Fiction",
+        "category": "Adventure",
         "available_quantity": 7,
         "image_url": "https://covers.openlibrary.org/b/isbn/9780316769488-L.jpg"
     },
@@ -58,7 +58,7 @@
         "title": "Fahrenheit 451",
         "author": "Ray Bradbury",
         "description": "A dystopian story about a future society where books are banned and burned, following fireman Guy Montag as he begins to question everything.",
-        "category": "Science Fiction",
+        "category": "Fiction",
         "available_quantity": 10,
         "image_url": "https://covers.openlibrary.org/b/isbn/9781451673319-L.jpg"
     },
@@ -76,7 +76,7 @@
         "title": "The Alchemist",
         "author": "Paulo Coelho",
         "description": "A philosophical tale about Santiago, a shepherd boy who follows a dream across the desert in search of treasure and personal destiny.",
-        "category": "Philosophical Fiction",
+        "category": "Fantasy",
         "available_quantity": 20,
         "image_url": "https://covers.openlibrary.org/b/isbn/9780061122415-L.jpg"
     },
@@ -85,7 +85,7 @@
         "title": "The Book Thief",
         "author": "Markus Zusak",
         "description": "Set in Nazi Germany, this moving novel follows Liesel Meminger, a young girl who finds comfort and resistance through stolen books and words.",
-        "category": "Historical Fiction",
+        "category": "Adventure",
         "available_quantity": 11,
         "image_url": "https://covers.openlibrary.org/b/isbn/9780375842207-L.jpg"
     },
@@ -94,7 +94,7 @@
         "title": "The Kite Runner",
         "author": "Khaled Hosseini",
         "description": "A deeply emotional story of friendship, betrayal, guilt, and redemption set against decades of Afghan history.",
-        "category": "Contemporary Fiction",
+        "category": "Fantasy",
         "available_quantity": 8,
         "image_url": "https://covers.openlibrary.org/b/isbn/9781594631931-L.jpg"
     },
@@ -103,7 +103,7 @@
         "title": "The Road",
         "author": "Cormac McCarthy",
         "description": "A bleak yet tender post-apocalyptic novel about a father and son traveling through a ruined world while trying to preserve hope and humanity.",
-        "category": "Post-Apocalyptic Fiction",
+        "category": "Fiction",
         "available_quantity": 5,
         "image_url": "https://covers.openlibrary.org/b/isbn/9780307387899-L.jpg"
     },
@@ -112,7 +112,7 @@
         "title": "The Hunger Games",
         "author": "Suzanne Collins",
         "description": "Katniss Everdeen is forced into a televised fight for survival in Panem, a brutal nation ruled by spectacle, fear, and rebellion.",
-        "category": "Young Adult Dystopian",
+        "category": "Adventure",
         "available_quantity": 16,
         "image_url": "https://covers.openlibrary.org/b/isbn/9780439023481-L.jpg"
     },
