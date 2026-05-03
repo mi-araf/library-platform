@@ -63,7 +63,7 @@ export default function Navbar() {
                         </ul>
                     </div>
 
-                    <Link href="/" className="btn btn-ghost gap-2 rounded-full text-base md:text-xl font-medium md:font-extrabold tracking-tight px-0 md:px-4" >
+                    <Link href="/" className="btn btn-ghost gap-2 rounded-full text-sm md:text-xl font-medium md:font-extrabold tracking-tight px-0 md:px-4" >
                         <span className="grid w-8 h-8 md:h-10 md:w-10 place-items-center  rounded-2xl bg-emerald-500 text-primary-content shadow-mango">
                             <BookOpen className="h-5 w-5" />
                         </span>
@@ -80,14 +80,14 @@ export default function Navbar() {
                         !user &&
                         <Link href="/signin" className="btn btn-sm rounded-full btn-primary shadow-mango">
                             <UserCheck2 className="h-4 w-4" />
-                            Sign In
+                            Login
                         </Link>
                     }
 
                     {
                         user && (
-                            <div className="flex gap-4 items-center">
-                                <h4 className="text-base font-semibold">Hi! <span className="bg-linear-to-r from-primary via-fuchsia-400 to-orange-500 bg-clip-text text-transparent">{user?.name}</span></h4>
+                            <div className="flex gap-2 md:gap-4 items-center">
+                                <h4 className="text-sm md:text-base font-medium md:font-semibold"> <span className="hidden sm:inline-flex">Hi!</span> <span className="bg-linear-to-r from-primary via-fuchsia-400 to-orange-500 bg-clip-text text-transparent">{user?.name}</span></h4>
                                 <button onClick={handleSignOut} className="btn btn-sm rounded-full btn-warning">Log Out</button>
                             </div>
                         )

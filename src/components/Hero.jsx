@@ -49,7 +49,7 @@ export default function Hero() {
                                         Browse Now
                                         <ArrowRight className="h-5 w-5 transition duration-300 group-hover:translate-x-1" />
                                     </Link>
-                                    <Link href="/all-books" className="group inline-flex items-center justify-center gap-2 rounded-full bg-emerald-200 px-7 py-3 text-sm font-black text-emerald-950 shadow-lg shadow-primary/20 transition duration-300 hover:-translate-y-1 hover:scale-[1.03] hover:shadow-xl hover:shadow-primary/30 active:scale-95 sm:text-base">
+                                    <Link href="/signup" className="group inline-flex items-center justify-center gap-2 rounded-full bg-emerald-200 px-7 py-3 text-sm font-black text-emerald-950 shadow-lg shadow-primary/20 transition duration-300 hover:-translate-y-1 hover:scale-[1.03] hover:shadow-xl hover:shadow-primary/30 active:scale-95 sm:text-base">
                                         Regester Now
                                         <UserCheckIcon className="h-5 w-5 transition duration-300 group-hover:translate-x-1" />
                                     </Link>

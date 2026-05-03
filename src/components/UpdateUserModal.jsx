@@ -16,7 +16,7 @@ export function UpdateUserModal() {
         })
     };
 
-    
+
     return (
         <Modal>
             <Button variant="secondary" className='font-bold hover:bg-blue-300/50 hover:-translate-y-0.5 '>
@@ -30,7 +30,7 @@ export function UpdateUserModal() {
                             <Modal.Icon className="bg-accent-soft text-accent-soft-foreground">
                                 <BiUser className="size-5" />
                             </Modal.Icon>
-                            <Modal.Heading>Update User</Modal.Heading>
+                            <Modal.Heading>Update Your Informations</Modal.Heading>
                         </Modal.Header>
                         <Modal.Body className="p-6">
                             <Surface variant="default">
@@ -48,7 +48,7 @@ export function UpdateUserModal() {
                                         <Button slot="close" variant="secondary">
                                             Cancel
                                         </Button>
-                                        <Button type="submit" slot="close">Save</Button>
+                                        <Button type="submit" slot="close">Update Information</Button>
                                     </Modal.Footer>
                                 </form>
                             </Surface>
