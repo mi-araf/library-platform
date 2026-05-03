@@ -1,9 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { BookOpen, Menu, Sparkles, UserCheck2 } from "lucide-react";
 import { authClient } from "@/lib/auth-client";
+import { usePathname, useRouter } from "next/navigation";
 
 const navLinks = [
     { href: "/", label: "Home" },
@@ -16,10 +16,18 @@ export default function Navbar() {
     const user = userData.data?.user;
 
     const handleSignOut = async () => {
-        await authClient.signOut();
-    }
+        await authClient.signOut({
+            fetchOptions: {
+                onSuccess: () => {
+                    router.replace("/");
+                    router.refresh();
+                },
+            },
+        });
+    };
 
     const pathname = usePathname();
+    const router = useRouter();
 
     const nav = (
         <>
@@ -69,7 +77,7 @@ export default function Navbar() {
 
                 <div className="navbar-end gap-2 px-2 md:gap-3">
                     {
-                        !user && 
+                        !user &&
                         <Link href="/signin" className="btn btn-sm rounded-full btn-primary shadow-mango">
                             <UserCheck2 className="h-4 w-4" />
                             Sign In
