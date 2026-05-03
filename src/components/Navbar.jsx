@@ -3,14 +3,22 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { BookOpen, Menu, Sparkles, UserCheck2 } from "lucide-react";
+import { authClient } from "@/lib/auth-client";
 
 const navLinks = [
     { href: "/", label: "Home" },
     { href: "/all-books", label: "All Books" },
-    { href: "/my-profile", label: "My Profile" },
+    { href: "/profile", label: "View Profile" },
 ];
 
 export default function Navbar() {
+    const userData = authClient.useSession();
+    const user = userData.data?.user;
+
+    const handleSignOut = async () => {
+        await authClient.signOut();
+    }
+
     const pathname = usePathname();
 
     const nav = (
@@ -60,10 +68,22 @@ export default function Navbar() {
                 </nav>
 
                 <div className="navbar-end gap-2 px-2 md:gap-3">
-                    <Link href="/signin" className="btn btn-sm rounded-full btn-primary shadow-mango">
-                        <UserCheck2 className="h-4 w-4" />
-                        Sign In
-                    </Link>
+                    {
+                        !user && 
+                        <Link href="/signin" className="btn btn-sm rounded-full btn-primary shadow-mango">
+                            <UserCheck2 className="h-4 w-4" />
+                            Sign In
+                        </Link>
+                    }
+
+                    {
+                        user && (
+                            <div className="flex gap-4 items-center">
+                                <h4 className="text-base font-semibold">Hi! <span className="bg-linear-to-r from-primary via-fuchsia-400 to-orange-500 bg-clip-text text-transparent">{user?.name}</span></h4>
+                                <button onClick={handleSignOut} className="btn btn-sm rounded-full btn-warning">Log Out</button>
+                            </div>
+                        )
+                    }
                 </div>
             </div>
         </header>
