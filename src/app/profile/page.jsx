@@ -4,7 +4,6 @@ import FooterPage from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { UpdateUserModal } from "@/components/UpdateUserModal";
 import { authClient } from "@/lib/auth-client";
-import Image from "next/image";
 import Link from "next/link";
 
 const ProfilePage = () => {
@@ -15,14 +14,15 @@ const ProfilePage = () => {
         <div className="min-h-screen bg-[linear-gradient(135deg,#fff7e6_0%,#fffaf0_35%,#ffe8d6_70%,#f7e8ff_100%)]">
             <Navbar />
 
-            <main className="mx-auto w-11/12 md:w-10/12 pt-25 pb-16 md:pt-28">
+            {/* profile page */}
+            <div className="mx-auto w-11/12 md:w-10/12 pt-25 pb-16 md:pt-28">
                 <div className="mb-8">
                     <p className="text-sm font-bold text-emerald-500">
                         Hello, <span>{user?.name || "Reader"}</span>
                     </p>
 
                     <h1 className="mt-2 bg-linear-to-r from-slate-900 via-primary to-orange-400 bg-clip-text text-4xl font-black text-transparent md:text-5xl">
-                        My Profile
+                        Profile
                     </h1>
                 </div>
 
@@ -94,7 +94,7 @@ const ProfilePage = () => {
                         </div>
                     </div>
                 </section>
-            </main>
+            </div>
 
             <FooterPage />
         </div>
