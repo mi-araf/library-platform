@@ -41,7 +41,7 @@ export default function Hero() {
                                 </p>
 
                                 {/* Banner Button */}
-                                <div className="mt-6 flex gap-4">
+                                <div className="mt-5 flex gap-4 flex-col sm:flex-row">
                                     <Link
                                         href="/all-books"
                                         className="group inline-flex items-center justify-center gap-2 rounded-full bg-primary px-7 py-3 text-sm font-black text-primary-content shadow-lg shadow-primary/20 transition duration-300 hover:-translate-y-1 hover:scale-[1.03] hover:shadow-xl hover:shadow-primary/30 active:scale-95 sm:text-base"
