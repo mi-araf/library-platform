@@ -5,10 +5,25 @@ import Navbar from "@/components/Navbar";
 import { UpdateUserModal } from "@/components/UpdateUserModal";
 import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 
 const ProfilePage = () => {
     const userData = authClient.useSession();
     const user = userData.data?.user;
+
+    const handleSignOut = async () => {
+        await authClient.signOut({
+            fetchOptions: {
+                onSuccess: () => {
+                    router.replace("/");
+                    router.refresh();
+                },
+            },
+        });
+    };
+
+    const pathname = usePathname();
+    const router = useRouter();
 
     return (
         <div className="min-h-screen bg-[linear-gradient(135deg,#fff7e6_0%,#fffaf0_35%,#ffe8d6_70%,#f7e8ff_100%)]">
@@ -29,6 +44,11 @@ const ProfilePage = () => {
                 <section className="grid gap-6 lg:grid-cols-[380px_1fr]">
                     {/* Profile Card */}
                     <div className="rounded-[2rem] border border-white/70 bg-white/75 p-6 text-center shadow-2xl shadow-amber-900/10 backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:shadow-primary/20">
+
+                        <div className="my-4 inline-flex rounded-full bg-emerald-100 px-4 py-2 text-sm font-bold text-emerald-600">
+                            Active Member
+                        </div>
+
                         <div className="mx-auto h-32 w-32 overflow-hidden rounded-full border-4 border-white bg-primary/10 shadow-lg">
                             {user?.image ? (
                                 <img src={user.image} alt={user?.name || "User profile"} className="h-full w-full object-cover" />
@@ -40,24 +60,30 @@ const ProfilePage = () => {
                         </div>
 
                         <h2 className="mt-5 text-2xl font-black text-neutral">
-                            {user?.name || "Library Reader"}
+                            {user?.name || "Your Name"}
                         </h2>
 
                         <p className="mt-2 text-sm font-medium text-neutral/50">
                             {user?.email || "No email found"}
                         </p>
 
-                        <div className="mt-5 inline-flex rounded-full bg-emerald-100 px-4 py-2 text-sm font-bold text-emerald-600">
-                            Active Member
-                        </div>
-
-                        <br /><br />
+                        <br />
 
                         <UpdateUserModal />
+
+                        <br /><br />
+                        {
+                            user && (
+                                <div className="hover:-translate-y-0.5">
+                                    <button onClick={handleSignOut} className="btn btn-md rounded-full btn-warning hover:shadow-md">Log Out</button>
+                                </div>
+                            )
+                        }
+
                     </div>
 
                     {/* Details Card */}
-                    <div className="rounded-[2rem] border border-white/70 bg-white/75 p-6 shadow-2xl shadow-amber-900/10 backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:shadow-primary/20 sm:p-8">
+                    <div className="rounded-[2rem] border border-white/70 bg-white/75 p-7 shadow-2xl shadow-amber-900/10 backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:shadow-primary/20 sm:p-8">
                         <h2 className="text-2xl font-black text-neutral">
                             Account Information
                         </h2>
