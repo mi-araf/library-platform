@@ -4,12 +4,24 @@ import FooterPage from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { UpdateUserModal } from "@/components/UpdateUserModal";
 import { authClient } from "@/lib/auth-client";
+import { BookUpIcon, Home } from "lucide-react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 
 const ProfilePage = () => {
     const userData = authClient.useSession();
     const user = userData.data?.user;
+
+    const getBorrowedCount = () => {
+        if (typeof window === "undefined" || !user?.id) return 0;
+
+        const borrowKey = `borrowed-books-${user.id}`;
+        const borrowedBooks = JSON.parse(localStorage.getItem(borrowKey)) || [];
+
+        return borrowedBooks.length;
+    };
+
+    const borrowedCount = getBorrowedCount();
 
     const handleSignOut = async () => {
         await authClient.signOut({
@@ -100,7 +112,7 @@ const ProfilePage = () => {
                             </h3>
 
                             <div className="mt-4 grid gap-4 sm:grid-cols-3">
-                                <SummaryBox value="0" label="Borrowed" />
+                                <SummaryBox value={borrowedCount} label="Borrowed" />
                                 <SummaryBox value="0" label="Returned" />
                                 <SummaryBox value="24/7" label="Access" />
                             </div>
@@ -109,13 +121,13 @@ const ProfilePage = () => {
                         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                             <Link
                                 href="/all-books"
-                                className="inline-flex justify-center rounded-full bg-primary px-6 py-3 text-sm font-black text-primary-content shadow-lg shadow-primary/20 transition duration-300 hover:-translate-y-1 hover:bg-neutral hover:text-neutral-content active:scale-95"
+                                className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-black text-primary-content shadow-lg shadow-primary/20 transition duration-300 hover:-translate-y-1 hover:bg-amber-700 hover:text-neutral-content active:scale-95 gap-2"
                             >
-                                Browse Books
+                                Browse Books <BookUpIcon className="h-5 w-5" />
                             </Link>
 
-                            <Link href="/" className="inline-flex justify-center rounded-full border border-amber-200 bg-white px-6 py-3 text-sm font-black text-neutral/60 shadow-sm transition duration-300 hover:-translate-y-1 hover:bg-orange-100 hover:text-orange-600 active:scale-95" >
-                                Back Home
+                            <Link href="/" className="inline-flex items-center justify-center rounded-full border border-amber-200 bg-white px-6 py-3 text-sm font-black text-neutral/60 shadow-sm transition duration-300 hover:-translate-y-1 hover:bg-orange-100 hover:text-orange-600 active:scale-95 gap-2" >
+                                Back Home <Home  className="h-5 w-5"/>
                             </Link>
                         </div>
                     </div>

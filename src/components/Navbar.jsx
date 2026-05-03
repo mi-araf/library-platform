@@ -4,6 +4,7 @@ import Link from "next/link";
 import { BookOpen, Menu, Sparkles, UserCheck2 } from "lucide-react";
 import { authClient } from "@/lib/auth-client";
 import { usePathname, useRouter } from "next/navigation";
+import toast from 'react-hot-toast';
 
 const navLinks = [
     { href: "/", label: "Home" },
@@ -19,6 +20,7 @@ export default function Navbar() {
         await authClient.signOut({
             fetchOptions: {
                 onSuccess: () => {
+                    toast.success("Logged out successfully!");
                     router.replace("/");
                     router.refresh();
                 },
@@ -87,7 +89,7 @@ export default function Navbar() {
                     {
                         user && (
                             <div className="flex gap-2 md:gap-4 items-center">
-                                <h4 className="text-sm md:text-base font-medium md:font-semibold"> <span className="hidden sm:inline-flex">Hi!</span> <span className="bg-linear-to-r from-primary via-fuchsia-400 to-orange-500 bg-clip-text text-transparent">{user?.name}</span></h4>
+                                <Link href="/profile" className="text-sm md:text-base font-medium md:font-semibold"> <span className="hidden sm:inline-flex">Hi!</span> <span className="bg-linear-to-r from-primary via-fuchsia-400 to-orange-500 bg-clip-text text-transparent">{user?.name}</span></Link>
                                 <button onClick={handleSignOut} className="btn btn-sm rounded-full btn-warning">Log Out</button>
                             </div>
                         )

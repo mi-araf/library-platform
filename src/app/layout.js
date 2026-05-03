@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import "animate.css/animate.min.css";
+import { Toaster } from 'react-hot-toast';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,6 +30,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`${poppins.className} h-full `} data-theme="light">
       <body className="min-h-full flex flex-col">
         {children}
+        <Toaster />
       </body>
     </html>
   );

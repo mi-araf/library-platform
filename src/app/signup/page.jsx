@@ -6,6 +6,7 @@ import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { FcGoogle } from "react-icons/fc";
+import toast from 'react-hot-toast';
 
 export default function SignUpPage() {
 
@@ -24,10 +25,12 @@ export default function SignUpPage() {
             callbackURL: "/",
         });
 
-        console.log({ data, error });
-
-        if (!error) {
-            router.push("/");
+        if (error) {
+            toast.error(error.message || "Registration failed");
+        } else {
+            toast.success("Registration successful! Please log in.");
+            await authClient.signOut();
+            router.push("/signin");
         }
     };
 

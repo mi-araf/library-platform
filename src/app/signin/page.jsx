@@ -6,6 +6,7 @@ import { UserKey } from "lucide-react";
 import Link from "next/link";
 import { FcGoogle } from "react-icons/fc";
 import { authClient } from "@/lib/auth-client";
+import toast from 'react-hot-toast';
 
 export default function SignInPage() {
     const onSubmit = async (e) => {
@@ -19,7 +20,12 @@ export default function SignInPage() {
             callbackURL: "/",
         });
 
-        console.log({ data, error });
+        if (error) {
+            toast.error(error.message || "Login failed");
+        } else {
+            toast.success("Login successful!");
+            // Navigation is handled by callbackURL
+        }
     };
 
     const handleGoogleSignIn = async () => {
