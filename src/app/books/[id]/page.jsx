@@ -22,6 +22,7 @@ const BookDeatilsPage = ({ params }) => {
     const [book, setBook] = useState(null);
     const [session, setSession] = useState(null);
     const [currentUser, setCurrentUser] = useState(null);
+    const [isBookAlreadyBorrowed, setIsBookAlreadyBorrowed] = useState(false);
     const router = useRouter();
 
     useEffect(() => {
@@ -48,6 +49,16 @@ const BookDeatilsPage = ({ params }) => {
         checkSession();
     }, [params, router]);
 
+    // Check if book is already borrowed
+    useEffect(() => {
+        if (currentUser && book) {
+            const borrowKey = `borrowed-books-${currentUser.id}`;
+            const borrowedBooks = JSON.parse(localStorage.getItem(borrowKey)) || [];
+            const alreadyBorrowed = borrowedBooks.some((borrow) => borrow.bookId === book.id);
+            setIsBookAlreadyBorrowed(alreadyBorrowed);
+        }
+    }, [currentUser, book]);
+
     const handleBorrow = () => {
         if (!session) {
             router.push('/signin');
@@ -68,6 +79,7 @@ const BookDeatilsPage = ({ params }) => {
             JSON.stringify([...oldBorrowedBooks, newBorrow])
         );
 
+        setIsBookAlreadyBorrowed(true); // Immediately disable the button
         toast.success('Book borrowed successfully!');
     };
 
@@ -129,7 +141,11 @@ const BookDeatilsPage = ({ params }) => {
 
 
                             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                                <button onClick={handleBorrow} className="group inline-flex items-center justify-center gap-2 rounded-full bg-primary px-7 py-3 text-sm font-black text-primary-content shadow-lg shadow-primary/25 transition duration-300 hover:-translate-y-1 hover:scale-[1.03] hover:bg-indigo-900 hover:text-neutral-content hover:shadow-2xl hover:shadow-neutral/20 active:scale-95 sm:text-base cursor-pointer">
+                                <button 
+                                    onClick={handleBorrow} 
+                                    disabled={isBookAlreadyBorrowed}
+                                    title={isBookAlreadyBorrowed ? "Already borrowed" : ""}
+                                    className="group inline-flex items-center justify-center gap-2 rounded-full bg-primary px-7 py-3 text-sm font-black text-primary-content shadow-lg shadow-primary/25 transition duration-300 hover:-translate-y-1 hover:scale-[1.03] hover:bg-indigo-900 hover:text-neutral-content hover:shadow-2xl hover:shadow-neutral/20 active:scale-95 sm:text-base cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:hover:translate-y-0 disabled:hover:bg-primary disabled:hover:shadow-primary/25">
                                     Borrow This Book
                                     <BookOpenCheck className="h-5 w-5 transition duration-300 group-hover:rotate-12 group-hover:scale-110" />
                                 </button>

@@ -17,6 +17,11 @@ export default function Navbar() {
     const user = userData.data?.user;
 
     const handleSignOut = async () => {
+        // Clear borrowed books from localStorage on logout
+        if (user) {
+            localStorage.removeItem(`borrowed-books-${user.id}`);
+        }
+
         await authClient.signOut({
             fetchOptions: {
                 onSuccess: () => {
