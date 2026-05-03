@@ -116,7 +116,7 @@ export default function FooterPage() {
                                 className="group inline-flex items-center gap-3 text-2xl font-black tracking-tight text-neutral transition duration-300 hover:text-primary"
                             >
                                 <span
-                                    className={`grid h-11 w-11 place-items-center rounded-2xl bg-primary text-primary-content shadow-lg shadow-primary/20 transition duration-300 group-hover:-translate-y-1 group-hover:rotate-3 ${isFooterVisible
+                                    className={`grid h-11 w-11 place-items-center rounded-2xl bg-emerald-500 text-primary-content shadow-lg shadow-primary/20 transition duration-300 group-hover:-translate-y-1 group-hover:rotate-3 ${isFooterVisible
                                             ? "animate__animated animate__bounceIn"
                                             : "opacity-0"
                                         }`}
